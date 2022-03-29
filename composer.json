@@ -1,0 +1,22 @@
+{
+    "name": "drupal/copernicus_dialog",
+    "type": "drupal-module",
+    "description": "Drupal module to show dialog",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@gitlab.edw.ro:ecmwf/copernicus_dialog.git"
+        }
+    ],
+    "support": {
+        "source": "https://gitlab.edw.ro/ecmwf/copernicus_dialog"
+    },
+    "authors": [
+        {
+            "name": "Daniel Tabirca",
+            "email": "daniel.tabirca@eaudeweb.ro"
+        }
+    ]
+}
