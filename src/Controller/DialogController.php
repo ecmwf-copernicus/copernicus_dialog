@@ -11,9 +11,9 @@ use Symfony\Component\HttpFoundation\Cookie;
 class DialogController extends ControllerBase {
 
   /**
-   * Open a modal window
+   * Open a dialog window
    */
-  public function openModal() {
+  public function openDialog() {
 
     $config = $this->config('copernicus_dialog.settings');
 
@@ -45,9 +45,9 @@ class DialogController extends ControllerBase {
   }
 
   /**
-   * close the modal and set cookie
+   * close the dialog and set cookie
    */
-  public function closeModal(){
+  public function closeDialog(){
     $command = new CloseModalDialogCommand();
     $cookie = new Cookie('copernicus_dialog', TRUE);
     $response = new AjaxResponse();
