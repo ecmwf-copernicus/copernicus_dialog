@@ -9,8 +9,16 @@
           var ajaxSettings = {
             url: '/copernicus-dialog/open-dialog'
           };
-          var myAjaxObject = Drupal.ajax(ajaxSettings);
-          myAjaxObject.execute();
+          var ajaxObject = Drupal.ajax(ajaxSettings);
+          ajaxObject.execute().done(function(){
+            $('.ui-dialog-titlebar-close').bind('click', function() {
+              var ajaxSettings = {
+                url: '/copernicus-dialog/close-dialog'
+              };
+              var ajaxObject = Drupal.ajax(ajaxSettings);
+              ajaxObject.execute();
+            });
+          });
         });
     }
   };

@@ -3,10 +3,11 @@
 namespace Drupal\copernicus_dialog\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\OpenModalDialogCommand;
+use Drupal\Core\Ajax\OpenDialogCommand;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Ajax\CloseModalDialogCommand;
+use Drupal\Core\Ajax\CloseDialogCommand;
 use Symfony\Component\HttpFoundation\Cookie;
+use Drupal\copernicus_dialog\Utils\HelperFunctions;
 
 class DialogController extends ControllerBase {
 
@@ -16,22 +17,23 @@ class DialogController extends ControllerBase {
   public function openDialog() {
 
     $config = $this->config('copernicus_dialog.settings');
+    $cookieId = HelperFunctions::generateCookieId($config->get('dialog_title'));
 
     if (
       $config->get('dialog_enabled')
       && \Drupal::currentUser()->isAnonymous()
-      && !\Drupal::request()->cookies->get('copernicus_dialog')
+      && !\Drupal::request()->cookies->get($cookieId)
     ) {
       $title = $config->get('dialog_title');
 
-      $confirmation_form = $this->formBuilder()->getForm('Drupal\copernicus_dialog\Form\ConfirmationDialogForm');
+      //$confirmation_form = $this->formBuilder()->getForm('Drupal\copernicus_dialog\Form\ConfirmationDialogForm');
       $content = [
         '#type' => 'processed_text',
-        '#text' => $config->get('dialog_content')['value'],
+        '#text' => $cookieId . "<br><br>" . $config->get('dialog_content')['value'],
         '#format' => $config->get('dialog_content')['format'],
-        'submit' => [
-          $confirmation_form['submit']
-        ],
+        // 'submit' => [
+        //   $confirmation_form['submit']
+        // ],
       ];
 
       $response = new AjaxResponse();
@@ -39,7 +41,7 @@ class DialogController extends ControllerBase {
         //'width' => $config->get('dialog_width'),
         'dialogClass' => 'copernicus_dialog',
       ];
-      $response->addCommand(new OpenModalDialogCommand($title, $content, $options));
+      $response->addCommand(new OpenDialogCommand('#copernicus-dialog', $title, $content, $options));
       return $response;
     }
   }
@@ -48,8 +50,12 @@ class DialogController extends ControllerBase {
    * close the dialog and set cookie
    */
   public function closeDialog(){
-    $command = new CloseModalDialogCommand();
-    $cookie = new Cookie('copernicus_dialog', TRUE);
+
+    $config = $this->config('copernicus_dialog.settings');
+    $cookieId = HelperFunctions::generateCookieId($config->get('dialog_title'));
+
+    $command = new CloseDialogCommand('#copernicus-dialog');
+    $cookie = new Cookie($cookieId, TRUE);
     $response = new AjaxResponse();
     $response->addCommand($command);
     $response->headers->setCookie($cookie);

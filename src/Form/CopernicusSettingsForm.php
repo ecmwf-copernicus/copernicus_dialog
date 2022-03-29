@@ -34,7 +34,9 @@ class CopernicusSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Title:'),
       '#default_value' => $config->get('dialog_title'),
-      '#description' => $this->t('A title for the dialog window.'),
+      '#description' => $this->t('Warning: The title is used to compute the cookie ID so when the title is changed all the users who previously hid the dialog will see it again.'),
+      '#required' => TRUE,
+      '#required_error' => t('Please add a title.'),
     ];
     // Body html
     $form['dialog_content'] = [
