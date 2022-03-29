@@ -29,7 +29,7 @@ class DialogController extends ControllerBase {
       //$confirmation_form = $this->formBuilder()->getForm('Drupal\copernicus_dialog\Form\ConfirmationDialogForm');
       $content = [
         '#type' => 'processed_text',
-        '#text' => $cookieId . "<br><br>" . $config->get('dialog_content')['value'],
+        '#text' => $config->get('dialog_content')['value'],
         '#format' => $config->get('dialog_content')['format'],
         // 'submit' => [
         //   $confirmation_form['submit']
