@@ -1,0 +1,11 @@
+copernicus_dialog:
+  version: 1.0
+  js:
+    js/dialog.js: {}
+  css:
+    theme:
+      css/dialog.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.dialog.ajax

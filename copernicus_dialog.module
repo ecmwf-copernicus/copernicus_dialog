@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function copernicus_dialog_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'copernicus_dialog/copernicus_dialog';
+}

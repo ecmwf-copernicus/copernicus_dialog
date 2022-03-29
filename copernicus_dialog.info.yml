@@ -1,0 +1,6 @@
+name: Copernicus Dialog
+description: Displays a custom dialog on pageload
+package: Custom
+type: module
+core_version_requirement: ^8.8 || ^9
+configure: copernicus_dialog.admin_settings

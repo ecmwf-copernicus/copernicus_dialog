@@ -1,0 +1,5 @@
+copernicus_dialog.admin:
+  title: 'Copernicus Dialog'
+  route_name: copernicus_dialog.admin_settings
+  description: 'Settings for Copernicus Dialog'
+  parent: system.admin_config_ui

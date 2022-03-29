@@ -1,0 +1,15 @@
+.copernicus_dialog .ui-dialog-titlebar-close {
+  display:none;
+}
+.copernicus_dialog .close-button {
+  float: right;
+  margin-top: 10px;
+}
+.copernicus_dialog .ui-dialog-titlebar {
+  background-color: #941333;
+  color: white;
+}
+.copernicus_dialog .ui-dialog-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

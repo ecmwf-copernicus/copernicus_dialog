@@ -1,0 +1,7 @@
+modal_enabled: true
+modal_title: 'Copernicus Dialog Title'
+modal_content:
+  value: '<b>Copernicus Dialog</b> <a href="https://ro.wikipedia.org/wiki/HyperText_Markup_Language" target="_blank">HTML</a> content.'
+  format: 'full_html'
+modal_button: 'OK'
+modal_width: '60%'

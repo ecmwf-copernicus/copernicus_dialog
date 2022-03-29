@@ -1,0 +1,24 @@
+copernicus_dialog.open_dialog:
+  path: 'copernicus-dialog/open-dialog'
+  defaults:
+    _controller: '\Drupal\copernicus_dialog\Controller\DialogController::openDialog'
+    _title: 'Open Dialog'
+  requirements:
+    _permission: 'access content'
+
+copernicus_dialog.close_dialog:
+  path: 'copernicus-dialog/close-dialog'
+  defaults:
+    _title: 'Close Dialog'
+    _controller: '\Drupal\copernicus_dialog\Controller\DialogController::closeDialog'
+  requirements:
+    _permission: 'access content'
+
+copernicus_dialog.admin_settings:
+  path: '/admin/config/copernicus_dialog'
+  defaults:
+    _title: 'Copernicus Dialog'
+    _form: '\Drupal\copernicus_dialog\Form\CopernicusSettingsForm'
+  requirements:
+    _permission: 'administer copernicus_dialog settings'
+
