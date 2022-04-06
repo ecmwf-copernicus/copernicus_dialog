@@ -22,8 +22,8 @@ class ConfirmationDialogForm extends FormBase {
     $config = $this->config('copernicus_dialog.settings');
     $form['submit'] = [
       '#type' => 'link',
-      '#title' => $this->t($config->get('modal_button')),
-      '#url' => Url::fromRoute('copernicus_dialog.close_modal'),
+      '#title' => $this->t($config->get('dialog_button')),
+      '#url' => Url::fromRoute('copernicus_dialog.close_dialog'),
       '#attributes' => [
         'class' => [
           'ccl-button',
