@@ -46,13 +46,13 @@ class CopernicusSettingsForm extends ConfigFormBase {
       '#description' => $this->t('The HTML content shown in the dialog window.'),
       '#format' => $config->get('dialog_content')['format'],
     ];
-    // // Confirmation button text
-    // $form['dialog_button'] = [
-    //   '#type' => 'textfield',
-    //   '#title' => $this->t('Button Text:'),
-    //   '#default_value' => $config->get('dialog_button'),
-    //   '#description' => $this->t('Text displayed on the confirmation button.'),
-    // ];
+    // Confirmation button text
+    $form['dialog_button'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Button Text:'),
+      '#default_value' => $config->get('dialog_button'),
+      '#description' => $this->t('Text displayed on the confirmation button.'),
+    ];
     // Width of the dialog window
     // $form['dialog_width'] = [
     //   '#type' => 'textfield',
@@ -80,7 +80,7 @@ class CopernicusSettingsForm extends ConfigFormBase {
     $config->set('dialog_enabled', $form_state->getValue('dialog_enabled'));
     $config->set('dialog_content', $form_state->getValue('dialog_content'));
     $config->set('dialog_title', $form_state->getValue('dialog_title'));
-    //$config->set('dialog_button', $form_state->getValue('dialog_button'));
+    $config->set('dialog_button', $form_state->getValue('dialog_button'));
     //$config->set('dialog_width', $form_state->getValue('dialog_width'));
     $config->save();
     return parent::submitForm($form, $form_state);

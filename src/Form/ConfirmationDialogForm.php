@@ -20,24 +20,24 @@ class ConfirmationDialogForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('copernicus_dialog.settings');
-    // $form['submit'] = [
-    //   '#type' => 'link',
-    //   '#title' => $this->t($config->get('modal_button')),
-    //   '#url' => Url::fromRoute('copernicus_dialog.close_modal'),
-    //   '#attributes' => [
-    //     'class' => [
-    //       'ccl-button',
-    //       'ccl-button--default',
-    //       'close-button',
-    //       'use-ajax'
-    //     ],
-    //     //'onclick' => "$('.ui-dialog-titlebar-close').click();",
-    //   ],
-    //   '#ajax' => [
-    //      // 'callback' => [$this, ''],
-    //     'event' => 'click',
-    //   ],
-    // ];
+    $form['submit'] = [
+      '#type' => 'link',
+      '#title' => $this->t($config->get('modal_button')),
+      '#url' => Url::fromRoute('copernicus_dialog.close_modal'),
+      '#attributes' => [
+        'class' => [
+          'ccl-button',
+          'ccl-button--default',
+          'close-button',
+          'use-ajax'
+        ],
+        //'onclick' => "$('.ui-dialog-titlebar-close').click();",
+      ],
+      '#ajax' => [
+         // 'callback' => [$this, ''],
+        'event' => 'click',
+      ],
+    ];
 
     return $form;
   }

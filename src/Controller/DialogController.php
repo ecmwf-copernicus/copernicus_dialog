@@ -26,14 +26,14 @@ class DialogController extends ControllerBase {
     ) {
       $title = $config->get('dialog_title');
 
-      //$confirmation_form = $this->formBuilder()->getForm('Drupal\copernicus_dialog\Form\ConfirmationDialogForm');
+      $confirmation_form = $this->formBuilder()->getForm('Drupal\copernicus_dialog\Form\ConfirmationDialogForm');
       $content = [
         '#type' => 'processed_text',
         '#text' => $config->get('dialog_content')['value'],
         '#format' => $config->get('dialog_content')['format'],
-        // 'submit' => [
-        //   $confirmation_form['submit']
-        // ],
+        'submit' => [
+          $confirmation_form['submit']
+        ],
       ];
 
       $response = new AjaxResponse();
