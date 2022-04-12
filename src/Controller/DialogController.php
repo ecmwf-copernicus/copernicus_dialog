@@ -44,6 +44,8 @@ class DialogController extends ControllerBase {
       $response->addCommand(new OpenDialogCommand('#copernicus-dialog', $title, $content, $options));
       return $response;
     }
+
+    return new AjaxResponse();
   }
 
   /**
