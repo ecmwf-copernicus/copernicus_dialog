@@ -20,6 +20,9 @@
   margin-bottom: 10px;
   max-height: inherit !important;
 }
+.copernicus_dialog .ui-dialog-content a:focus {
+  outline: none;
+}
 .copernicus_dialog {
   padding: 0;
   right: 30px;
