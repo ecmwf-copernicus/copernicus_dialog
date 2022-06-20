@@ -7,11 +7,11 @@
     "repositories": [
         {
             "type": "git",
-            "url": "git@gitlab.edw.ro:ecmwf/copernicus_dialog.git"
+            "url": "https://github.com/ecmwf-copernicus/copernicus_dialog.git"
         }
     ],
     "support": {
-        "source": "https://gitlab.edw.ro/ecmwf/copernicus_dialog"
+        "source": "https://github.com/ecmwf-copernicus/copernicus_dialog"
     },
     "authors": [
         {
