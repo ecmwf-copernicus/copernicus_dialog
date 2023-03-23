@@ -18,7 +18,7 @@ class DialogController extends ControllerBase {
 
     $config = $this->config('copernicus_dialog.settings');
     if (!$config->get('dialog_enabled')) {
-      return ;
+      return new AjaxResponse();
     }
     $cookieId = HelperFunctions::generateCookieId($config->get('dialog_title'));
 
